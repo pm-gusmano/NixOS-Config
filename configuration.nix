@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/freedom.nix
     ];
 
   nix.settings.experimental-features = [
@@ -138,6 +139,7 @@
     codex
     git
     neovim
+    gcc # For neovim tree-sitter
     ripgrep
     fd
     fzf
