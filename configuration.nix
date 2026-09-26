@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./modules/freedom.nix
+      ./modules/features/freedom.nix
     ];
 
   boot.loader.systemd-boot.configurationLimit = 3;

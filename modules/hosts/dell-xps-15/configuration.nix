@@ -4,6 +4,7 @@
     imports =
       [ # Include the results of the hardware scan.
         self.nixosModules.dellXps15Hardware
+	self.nixosModules.niri
         self.nixosModules.freedom
       ];
     boot.loader.systemd-boot.configurationLimit = 3;

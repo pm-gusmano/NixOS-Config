@@ -1,6 +1,6 @@
 # Freedom filtering
 
-`modules/freedom.nix` exports `flake.nixosModules.freedom`, which the Dell XPS
+`modules/features/freedom.nix` exports `flake.nixosModules.freedom`, which the Dell XPS
 host configuration imports. The freedom module imports the Steven Black module;
 its blocklists are pinned in `flake.lock`, following the existing nixpkgs input.
 Pornography, gambling, and social-media blocking are enabled. The flake uses
