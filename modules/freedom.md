@@ -1,8 +1,11 @@
 # Freedom filtering
 
-`configuration.nix` imports `freedom.nix`. The root flake imports the Steven
-Black module and pins its blocklists in `flake.lock`, following the existing
-nixpkgs input. Pornography, gambling, and social-media blocking are enabled.
+`modules/freedom.nix` exports `flake.nixosModules.freedom`, which the Dell XPS
+host configuration imports. The freedom module imports the Steven Black module;
+its blocklists are pinned in `flake.lock`, following the existing nixpkgs input.
+Pornography, gambling, and social-media blocking are enabled. The flake uses
+`modules/hosts/dell-xps-15/configuration.nix`; the old root `configuration.nix`
+is not part of this flake configuration.
 
 The module declares a static CleanBrowsing Family DNS configuration for IPv4
 and IPv6, prevents NetworkManager and DHCP from replacing it, and restricts
@@ -13,8 +16,8 @@ on this host, not traffic forwarded for containers or virtual machines.
 Build and apply from the repository root:
 
 ```sh
-nixos-rebuild build --flake .#nixos
-sudo nixos-rebuild switch --flake .#nixos
+nixos-rebuild build --flake .#dellXps15
+sudo nixos-rebuild switch --flake .#dellXps15
 ```
 
 After switching, restart Firefox and check `about:policies` for active policies
