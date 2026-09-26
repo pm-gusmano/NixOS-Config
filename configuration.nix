@@ -11,6 +11,9 @@
       ./modules/freedom.nix
     ];
 
+  boot.loader.systemd-boot.configurationLimit = 3;
+  services.usbmuxd.enable = true;
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -24,7 +27,7 @@
       extraArgs = "--keep-since 7d --keep 5";
     };
 
-    flake = "/home/pm-gusmano/nixos-config";
+    flake = "/home/pm-gusmano/NixOS-Config";
   };
 
 
@@ -66,7 +69,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = false;
+  services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
@@ -145,6 +148,7 @@
     fzf
     bat
     eza
+    ghostty
     zoxide
     jujutsu
     jjui
