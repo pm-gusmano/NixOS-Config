@@ -13,7 +13,7 @@
   };
 
   den.aspects."pm-gusmano" = {
-    includes = [ den.aspects.yazi den.aspects.cursor ];
+    includes = [ den.aspects.yazi den.aspects.cursor den.aspects.neovim ];
 
     homeManager = {
       home.stateVersion = "26.05";

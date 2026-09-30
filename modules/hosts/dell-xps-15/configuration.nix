@@ -136,7 +136,6 @@
     environment.systemPackages = with pkgs; [
       codex
       git
-      neovim
       gcc # For neovim tree-sitter
       ripgrep
       fd
