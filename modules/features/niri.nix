@@ -15,6 +15,11 @@
       inherit pkgs;
 
       settings = {
+        cursor = {
+          xcursor-theme = "Bibata-Modern-Classic";
+          xcursor-size = 24;
+        };
+
         spawn-at-startup = [
           (lib.getExe self'.packages.myNoctalia)
         ];
