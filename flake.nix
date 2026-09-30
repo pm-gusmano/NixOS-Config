@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
+    den.url = "github:denful/den";
 
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
     hosts = {
