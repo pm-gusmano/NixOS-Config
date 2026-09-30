@@ -150,7 +150,6 @@
       jjui
       just
       stow
-      yazi
       zellij
     ];
 

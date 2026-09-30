@@ -6,6 +6,10 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
     den.url = "github:denful/den";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
     hosts = {
