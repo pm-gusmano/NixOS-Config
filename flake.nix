@@ -3,6 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # Keep Noctalia and its runtime on the working system's package set
+    # until the Breakpad build failure is fixed in nixos-unstable.
+    nixpkgs-noctalia.url = "github:NixOS/nixpkgs/e554fab72f81915600f3f449b786fd9af40439a5";
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
     den.url = "github:denful/den";
