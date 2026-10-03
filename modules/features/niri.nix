@@ -33,6 +33,7 @@
 
         binds = {
           "Mod+Return".spawn = "${pkgs.ghostty}/bin/ghostty";
+          "Mod+O".toggle-overview = _: {};
           "Mod+Space".spawn = [
             (lib.getExe self'.packages.myNoctalia)
             "ipc" "call" "launcher" "toggle"
