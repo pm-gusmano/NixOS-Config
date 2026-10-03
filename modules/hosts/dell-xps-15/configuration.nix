@@ -128,12 +128,35 @@
     # Install firefox.
     programs.firefox.enable = true;
 
+    programs.steam.enable = true;
+
+    # Keep memory pressure from immediately killing games or the desktop.
+    zramSwap = {
+      enable = true;
+      memoryPercent = 25;
+      algorithm = "zstd";
+    };
+
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
     # List packages installed in system profile.
     # You can use https://search.nixos.org/ to find more packages (and options).
     environment.systemPackages = with pkgs; [
+      pciutils
+      vulkan-tools
+      (writeShellScriptBin "overwatch-launch" ''
+        if [ ! -r /proc/driver/nvidia/version ]; then
+          echo "Overwatch requires the NVIDIA driver. Reboot into the updated NixOS generation first." >&2
+          exit 1
+        fi
+        # Free unused DX11 pipeline libraries to limit shader memory growth.
+        export DXVK_CONFIG="dxvk.trackPipelineLifetime = True"
+        # Select the discrete GPU even if Vulkan enumerates Intel first.
+        export DXVK_FILTER_DEVICE_NAME="NVIDIA GeForce RTX 4060 Laptop GPU"
+        export VKD3D_FILTER_DEVICE_NAME="$DXVK_FILTER_DEVICE_NAME"
+        exec /run/current-system/sw/bin/nvidia-offload "$@"
+      '')
       codex
       git
       gcc # For neovim tree-sitter

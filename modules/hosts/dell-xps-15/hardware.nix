@@ -10,6 +10,29 @@
     boot.kernelModules = [ "kvm-intel" ];
     boot.extraModulePackages = [ ];
 
+    hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+    # Intel drives the desktop; use nvidia-offload for the RTX 4060 Laptop GPU.
+    services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+    hardware.nvidia = {
+      open = true;
+      modesetting.enable = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      powerManagement.enable = true;
+      powerManagement.finegrained = true;
+      prime = {
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+      };
+    };
+
     fileSystems."/" =
       { device = "/dev/disk/by-uuid/773b9eba-ef3c-49cc-866e-41617f05dcd4";
         fsType = "ext4";
