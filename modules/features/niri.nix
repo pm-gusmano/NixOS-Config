@@ -57,10 +57,30 @@
           "Mod+Ctrl+Shift+N".move-window-to-workspace-down = _: {};
           "Mod+Ctrl+Shift+E".move-window-to-workspace-up = _: {};
 
+          # Like Zellij's Alt+F: switch focus between floating and tiled panes.
+          # Shift changes the focused window's layout instead of its focus.
+          "Mod+F".switch-focus-between-floating-and-tiling = _: {};
+          "Mod+Shift+F".toggle-window-floating = _: {};
+
+          # Stack/unstack toward a neighboring column; toggle its tabbed view.
+          "Mod+Shift+M".consume-or-expel-window-left = _: {};
+          "Mod+Shift+I".consume-or-expel-window-right = _: {};
+          "Mod+T".toggle-column-tabbed-display = _: {};
+          "Mod+C".center-window = _: {};
+          "Mod+Tab".focus-workspace-previous = _: {};
+
+          # Resize with the same directions, for both tiled and floating windows.
+          "Mod+Alt+M".set-window-width = "-10%";
+          "Mod+Alt+I".set-window-width = "+10%";
+          "Mod+Alt+N".set-window-height = "+10%";
+          "Mod+Alt+E".set-window-height = "-10%";
+          "Mod+Shift+R".reset-window-height = _: {};
+
           "Mod+Q".close-window = _: {};
-          "Mod+R".switch-preset-column-width = _: {};
-          "Mod+F".maximize-column = _: {};
-          "Mod+Shift+F".fullscreen-window = _: {};
+          "Mod+R".switch-preset-window-width = _: {};
+          # Z for zoom; Shift gives the window the whole screen.
+          "Mod+Z".maximize-column = _: {};
+          "Mod+Shift+Z".fullscreen-window = _: {};
           "Mod+Shift+Slash".show-hotkey-overlay = _: {};
         };
       };
